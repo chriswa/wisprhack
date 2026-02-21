@@ -48,7 +48,15 @@ intercepting POST /llm/command_mode_route
 
 The `instruction` field is exactly what was spoken. The `full_text` field comes from whatever application was focused — in this case Chrome on a GitHub repo page.
 
-**Note:** If the `BASE_WEB_URL` env var is set but the proxy isn't running, normal dictation still seems to work but command mode will show "servers are busy". Just start the proxy or `launchctl unsetenv BASE_WEB_URL` and restart Wispr.
+**Note:** If the `BASE_WEB_URL` env var is set but the proxy isn't running, speech-to-text transcription still works (it uses a separate gRPC connection), but everything that goes through the REST API will break:
+
+- AI text formatting/cleanup of transcriptions
+- Command mode (shows "servers are busy")
+- Polish feature
+- History upload, notes sync, preference saving
+- Subscription checks
+
+The proxy should probably be running whenever Wispr is running if you have the env var set. Otherwise, `launchctl unsetenv BASE_WEB_URL` and restart Wispr.
 
 ## Teardown
 
