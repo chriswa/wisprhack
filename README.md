@@ -81,3 +81,7 @@ The response shape controls what Wispr does next:
 ```
 
 For example, you could shell out to a script, call an LLM API, or do anything else — just return the response shape above.
+
+## Acknowledgements
+
+Thanks to Kaleigh for the idea behind this project.
