@@ -31,7 +31,7 @@ Then quit and reopen Wispr Flow normally (dock, Spotlight, etc). Do **not** laun
 
 Use the Lens shortcut (Fn+Ctrl), speak a command, and watch the transcribed text appear in the proxy terminal.
 
-Normal dictation (push-to-talk) works as usual — those API calls pass through to the real server.
+Normal dictation (push-to-talk) works as usual — speech-to-text uses a separate gRPC connection that isn't affected by the proxy.
 
 ### Example
 
