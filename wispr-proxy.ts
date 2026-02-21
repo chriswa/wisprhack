@@ -51,5 +51,3 @@ const server = Bun.serve({
 console.log(`wispr-proxy listening on http://localhost:${server.port}`);
 console.log(`forwarding to ${UPSTREAM}`);
 console.log(`intercepting POST /llm/command_mode_route\n`);
-console.log(`launch wispr with:`);
-console.log(`  BASE_WEB_URL=http://localhost:${PORT} /Applications/Wispr\\ Flow.app/Contents/MacOS/Wispr\\ Flow\n`);

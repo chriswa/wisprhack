@@ -33,6 +33,21 @@ Use the Lens shortcut (Fn+Ctrl), speak a command, and watch the transcribed text
 
 Normal dictation (push-to-talk) works as usual — those API calls pass through to the real server.
 
+### Example
+
+```
+$ bun run ~/wispr/wispr-proxy.ts
+wispr-proxy listening on http://localhost:61990
+forwarding to https://api.wisprflow.ai
+intercepting POST /llm/command_mode_route
+
+[2026-02-21T16:17:43.761Z] COMMAND MODE
+  instruction: I'm holding function and control right now. The indicator on the bottom of my screen is orange.
+  full_text: ￼Skip to content￼￼￼chriswa￼wisprhackType / to search￼￼￼￼￼￼￼￼￼￼Repository navigationCodeIssuesPull requestsActionsProjectsWikiSecurityInsightsSettings￼￼￼wisprhackPublic￼Fork 0￼ Star 0￼￼chriswa/wisprhac
+```
+
+The `instruction` field is exactly what was spoken. The `full_text` field comes from whatever application was focused — in this case Chrome on a GitHub repo page.
+
 **Note:** If the `BASE_WEB_URL` env var is set but the proxy isn't running, normal dictation still seems to work but command mode will show "servers are busy". Just start the proxy or `launchctl unsetenv BASE_WEB_URL` and restart Wispr.
 
 ## Teardown
